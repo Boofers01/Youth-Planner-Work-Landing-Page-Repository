@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 340">
+  <rect width="520" height="340" rx="20" fill="#f3e8f0"/>
+  
+  <rect x="40" y="30" width="440" height="280" rx="14" fill="#ffffff"/>
+  <text x="60" y="66" font-family="Arial" font-size="20" font-weight="bold" fill="#16294f">Automatic Reminders</text>
+  <rect x="60" y="86" width="300" height="58" rx="14" fill="#eef2f9"/>
+  <text x="76" y="110" font-family="Arial" font-size="12" fill="#374151">Hi Jessica! Youth group meets tomorrow</text>
+  <text x="76" y="128" font-family="Arial" font-size="12" fill="#374151">at 6 PM. Can you still bring snacks?</text>
+  <rect x="160" y="158" width="300" height="40" rx="14" fill="#5b5bd6"/>
+  <text x="176" y="183" font-family="Arial" font-size="12" fill="#ffffff">Yes! See you all there.</text>
+  <rect x="60" y="212" width="300" height="58" rx="14" fill="#eef2f9"/>
+  <text x="76" y="236" font-family="Arial" font-size="12" fill="#374151">Reminder sent to 24 students and</text>
+  <text x="76" y="254" font-family="Arial" font-size="12" fill="#374151">8 volunteers automatically.</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 340">
+  <rect width="520" height="340" rx="20" fill="#e6f2e6"/>
+  
+  <rect x="40" y="30" width="440" height="280" rx="14" fill="#ffffff"/>
+  <text x="60" y="66" font-family="Arial" font-size="20" font-weight="bold" fill="#16294f">Team &amp; Volunteer Roster</text>
+  <g font-family="Arial" font-size="13" fill="#374151">
+    <circle cx="80" cy="105" r="16" fill="#2fb8d6"/><text x="106" y="110">Sarah M. - Group Leader</text>
+    <circle cx="80" cy="150" r="16" fill="#8a4fc9"/><text x="106" y="155">David R. - Worship</text>
+    <circle cx="80" cy="195" r="16" fill="#f2594b"/><text x="106" y="200">Kayla T. - Snacks &amp; Setup</text>
+    <circle cx="80" cy="240" r="16" fill="#8dc63f"/><text x="106" y="245">Marcus J. - Games</text>
+  </g>
+  <g fill="#8dc63f" font-family="Arial" font-size="14" font-weight="bold">
+    <text x="420" y="110">OK</text><text x="420" y="155">OK</text><text x="420" y="200">OK</text><text x="420" y="245">OK</text>
+  </g>
+</svg>

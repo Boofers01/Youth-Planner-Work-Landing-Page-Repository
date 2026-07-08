@@ -1,0 +1,40 @@
+group,token,value,description
+brand,--brand-navy,#16294f,Primary dark text / logo navy
+brand,--brand-blue,#5b5bd6,Accent blue-purple (headline Planner)
+brand,--brand-cyan,#2fb8d6,Logo cyan
+brand,--brand-purple,#8a4fc9,Logo purple
+brand,--brand-green,#8dc63f,Logo green
+brand,--brand-red,#f2594b,Logo red
+menu,--menu-bg,#ffffff,Menu bar background
+menu,--menu-text,#16294f,Menu link text color
+menu,--menu-hover,#5b5bd6,Menu link hover color
+menu,--menu-login-bg,#7b7bdc,Log in button background start
+menu,--menu-login-bg2,#5b5bd6,Log in button gradient end
+menu,--menu-login-text,#ffffff,Log in button text
+hero,--hero-grad-1,#ecdcef,Hero gradient stop 1 (pink-lavender)
+hero,--hero-grad-2,#dde6f4,Hero gradient stop 2 (pale blue)
+hero,--hero-grad-3,#d9efe6,Hero gradient stop 3 (mint)
+hero,--hero-grad-4,#f6ecdd,Hero gradient stop 4 (cream)
+hero,--hero-heading,#111827,Hero heading color
+hero,--hero-accent,#5b5bd6,Hero accent word color
+buttons,--btn-primary-bg,#7b7bdc,Primary button background start
+buttons,--btn-primary-bg2,#5b5bd6,Primary button gradient end
+buttons,--btn-primary-text,#ffffff,Primary button text
+buttons,--btn-radius,999px,Primary button corner radius
+carousel,--carousel-bg,#f4f6fb,Carousel section background
+carousel,--carousel-dot,#c3c9dd,Inactive dot color
+carousel,--carousel-dot-active,#5b5bd6,Active dot color
+footer,--footer-bg,#383c44,Footer background (neutral dark grey, kept distinct from the navy/indigo pricing background above it)
+footer,--footer-text,#dfe5f2,Footer text color
+footer,--footer-link,#9fd8e8,Footer link color
+page,--page-bg,#ffffff,Default page background
+page,--page-text,#1f2937,Default body text
+page,--card-bg,#ffffff,Card background
+showcase,--showcase-grad-1,#111827,Showcase section gradient stop 1 (near-black navy) - 135deg start
+showcase,--showcase-grad-2,#172554,Showcase section gradient stop 2 (deep navy, 58%)
+showcase,--showcase-grad-3,#3730a3,Showcase section gradient stop 3 (indigo end)
+layout,--nav-height,64px,Real rendered fixed navbar height (0.6rem padding + 44px logo); used as scroll-margin-top offset and in min-height calc for scroll-snap sections
+pricing,--pricing-bg,#172554,Pricing section darker background (matches showcase deep-navy tone) so the white price cards stand out
+pricing,--price-card-border,#8dc63f,Featured/best-value price card border (brand-green, kept distinct from the navy background)
+pricing,--price-heading-accent,#5b5bd6,Accent color for part of the pricing section heading
+pricing,--price-figure-accent,#6b7fcf,Accent color for the price figure inside each card

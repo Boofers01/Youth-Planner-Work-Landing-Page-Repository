@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 340">
+  <rect width="520" height="340" rx="20" fill="#e3ecf8"/>
+  
+  <rect x="40" y="30" width="440" height="280" rx="14" fill="#ffffff"/>
+  <text x="60" y="66" font-family="Arial" font-size="20" font-weight="bold" fill="#16294f">July 2026</text>
+  <g font-family="Arial" font-size="12" fill="#6b7280">
+    <text x="70" y="95">S</text><text x="130" y="95">M</text><text x="190" y="95">T</text><text x="250" y="95">W</text><text x="310" y="95">T</text><text x="370" y="95">F</text><text x="430" y="95">S</text>
+  </g>
+  <g fill="#eef2f9">
+    <rect x="58" y="106" width="404" height="40" rx="8"/><rect x="58" y="152" width="404" height="40" rx="8"/><rect x="58" y="198" width="404" height="40" rx="8"/>
+  </g>
+  <rect x="180" y="110" width="60" height="32" rx="8" fill="#5b5bd6"/>
+  <text x="210" y="130" text-anchor="middle" font-family="Arial" font-size="11" fill="#fff">Youth Nt</text>
+  <rect x="300" y="156" width="60" height="32" rx="8" fill="#2fb8d6"/>
+  <text x="330" y="176" text-anchor="middle" font-family="Arial" font-size="11" fill="#fff">Camp</text>
+  <rect x="120" y="202" width="60" height="32" rx="8" fill="#8dc63f"/>
+  <text x="150" y="222" text-anchor="middle" font-family="Arial" font-size="11" fill="#fff">Serve</text>
+  <rect x="60" y="255" width="400" height="36" rx="10" fill="#f4f6fb"/>
+  <text x="76" y="278" font-family="Arial" font-size="13" fill="#16294f">Youth Night - Fri 6:00 PM - Main Hall</text>
+</svg>
