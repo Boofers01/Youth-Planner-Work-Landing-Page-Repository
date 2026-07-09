@@ -16,64 +16,6 @@ if (navbar && document.body.classList.contains('home')) {
   window.addEventListener('scroll', setScrolled, { passive: true });
 }
 
-// Section-to-section scroll navigation. Any element with the
-// .snap-section class becomes a stop — add/remove/reorder sections in
-// the markup and this keeps working with no code changes needed here.
-(function () {
-  const getSections = () => Array.from(document.querySelectorAll('.snap-section'));
-
-  // Whichever section's own midpoint is closest to the viewport's midpoint
-  // is "current". Using live, viewport-relative positions (instead of
-  // offsetTop, which is relative to the nearest positioned ancestor and can
-  // silently give the wrong number depending on nesting) keeps this correct
-  // for every section regardless of alignment (start- or center-snapped).
-  function currentIndex(sections) {
-    const viewportMid = window.innerHeight / 2;
-    let idx = 0;
-    let bestDist = Infinity;
-    sections.forEach((sec, i) => {
-      const rect = sec.getBoundingClientRect();
-      const dist = Math.abs((rect.top + rect.bottom) / 2 - viewportMid);
-      if (dist < bestDist) {
-        bestDist = dist;
-        idx = i;
-      }
-    });
-    return idx;
-  }
-
-  function goToSection(i) {
-    const sections = getSections();
-    if (!sections.length) return;
-    const clamped = Math.max(0, Math.min(sections.length - 1, i));
-    const target = sections[clamped];
-    // Match whatever alignment the target actually snaps to (start/center/
-    // end), so the jump lands in the right spot instead of assuming "start".
-    const align = getComputedStyle(target).scrollSnapAlign;
-    const block = align === 'center' ? 'center' : align === 'end' ? 'end' : 'start';
-    target.scrollIntoView({ behavior: 'smooth', block });
-  }
-
-  document.addEventListener('keydown', (e) => {
-    const sections = getSections();
-    if (!sections.length) return;
-    const tag = document.activeElement && document.activeElement.tagName;
-    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
-    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-      e.preventDefault();
-      goToSection(currentIndex(sections) + 1);
-    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-      e.preventDefault();
-      goToSection(currentIndex(sections) - 1);
-    }
-  });
-
-  const scrollBtn = document.getElementById('heroScrollDown');
-  if (scrollBtn) {
-    scrollBtn.addEventListener('click', () => goToSection(currentIndex(getSections()) + 1));
-  }
-})();
-
 // Showcase GIFs: if a gif hasn't been dropped in yet, show a friendly
 // placeholder instead of a broken image icon.
 document.querySelectorAll('.showcase-media img').forEach(img => {
@@ -81,9 +23,47 @@ document.querySelectorAll('.showcase-media img').forEach(img => {
     const wrap = img.parentElement;
     const name = img.getAttribute('src').split('/').pop();
     wrap.classList.add('missing');
-    wrap.innerHTML = '<span>Add <code>' + name + '</code> to Images/photos/Showcase/</span>';
+    wrap.innerHTML = '<span>Add <code>' + name + '</code> to Images/photos/Gifs/</span>';
   }, { once: true });
 });
+
+// Lightbox: click a carousel slide or showcase image to view it enlarged.
+// Shared by the carousel and the "Watch It Work" showcase cards below.
+const lightbox = document.getElementById('lightbox');
+let openLightbox = () => {};
+let closeLightbox = () => {};
+if (lightbox) {
+  const lightboxImg = lightbox.querySelector('.lightbox-img');
+  const lightboxClose = lightbox.querySelector('.lightbox-close');
+  let onClose = null;
+
+  openLightbox = (img, onCloseCallback) => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    onClose = onCloseCallback || null;
+  };
+  closeLightbox = () => {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (onClose) { onClose(); onClose = null; }
+  };
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+  });
+
+  // Showcase cards (Schedule Maker gif, Supplies Tracker, etc.) — no
+  // auto-advance to pause, so no close callback needed.
+  document.querySelectorAll('.showcase-media img').forEach(img => {
+    img.addEventListener('click', () => openLightbox(img));
+  });
+}
 
 // Image carousel
 const track = document.querySelector('.carousel-track');
@@ -126,4 +106,16 @@ if (track) {
     timer = setInterval(() => go(index + 1), 5000);
   }
   go(0);
+
+  // Carousel slides use the shared lightbox (see above), pausing
+  // auto-advance while open and resuming it on close.
+  slides.forEach(slide => {
+    const img = slide.querySelector('img');
+    if (img) {
+      img.addEventListener('click', () => {
+        clearInterval(timer);
+        openLightbox(img, restart);
+      });
+    }
+  });
 }

@@ -49,7 +49,7 @@
   --showcase-grad-3: #3730a3;
   --showcase-gradient: linear-gradient(135deg, var(--showcase-grad-1), var(--showcase-grad-2) 58%, var(--showcase-grad-3));
   /* layout */
-  --nav-height: 64px; /* real rendered navbar height: 0.6rem padding (19.2px) + 44px logo */
+  --nav-height: 64px; /* real rendered navbar height: 0.6rem padding (19.2px) + 44px logo; matches the literal 64px used in .page-hero's min-height calc below */
   /* pricing */
   --pricing-bg: #172554;
   --price-card-border: #8dc63f;
@@ -59,38 +59,6 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-/* Scroll-snap is only for the single-page landing experience (index.html,
-   <html class="home">) — other pages (contact/signin/terms) scroll normally.
-   Sections with the .snap-section class (see below) become the snap points.
-   "mandatory" so snapping is decisive after a small scroll, rather than only
-   kicking in once you're already close to the next stop. The footer gets its
-   own snap point below (scroll-snap-align: end) so mandatory always has
-   somewhere valid to land past Pricing, instead of trapping the scroll. */
-html.home {
-  scroll-snap-type: y mandatory;
-  /* Insets the effective scrollport by the fixed navbar's height, so both
-     "start" and "center" snap alignment are computed against the space
-     actually visible below the nav, not the full (partly-covered) viewport. */
-  scroll-padding-top: var(--nav-height);
-}
-/* Any element can opt into the scroll-snap flow by getting this class,
-   so new sections dropped into the page later are picked up automatically
-   by both the CSS snapping and the JS keyboard/button navigation. Individual
-   elements can override scroll-snap-align (e.g. the showcase cards use
-   "center" — see below). */
-.snap-section {
-  scroll-snap-align: start;
-}
-/* Content sections (not the hero, which already sizes itself) get a
-   height that accounts for the fixed navbar overlay, so each destination
-   fills the actual visible viewport below the nav on scroll. Individual
-   sections can override this (see Showcase / Carousel / Pricing below). */
-.section.snap-section {
-  min-height: calc(100vh - var(--nav-height));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 body {
   margin: 0;
   font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
@@ -236,26 +204,6 @@ body.home .navbar.scrolled .nav-toggle { text-shadow: none; }
 .btn-primary:hover { filter: brightness(1.08); }
 .hero-art { flex: 1; display: flex; justify-content: center; }
 .hero-art img { max-height: 480px; width: auto; }
-.scroll-down-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2.5rem auto 0;
-  width: 40px;
-  height: 40px;
-  border: none;
-  border-radius: 50%;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-  animation: scrollDownBounce 2s ease-in-out infinite;
-}
-.scroll-down-btn img { width: 28px; height: 28px; display: block; }
-.scroll-down-btn:hover { opacity: 0.7; }
-@keyframes scrollDownBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
-}
 
 /* ---------- Sections ---------- */
 .section { padding: 4rem 1.5rem; }
@@ -274,23 +222,12 @@ body.home .navbar.scrolled .nav-toggle { text-shadow: none; }
 }
 
 /* ---------- Showcase (animated GIF cards) ---------- */
-/* Each .showcase-card (not this wrapper) is the snap destination now,
-   so sizing/centering is stated directly here rather than depending on
-   the .section.snap-section rule. Extra bottom padding so the last card
-   can be scrolled into a centered view without immediately snapping
-   past it into the next section. */
 .showcase-section {
   background: var(--showcase-gradient);
   color: #fff;
-  min-height: calc(100vh - var(--nav-height));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 10rem;
-  padding-bottom: 14rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
-/* Cards snap centered in the viewport instead of aligned to the top. */
-.showcase-card.snap-section { scroll-snap-align: center; }
 .showcase-section h2 { color: #fff; }
 .showcase-section .section-sub { color: rgba(255, 255, 255, 0.75); }
 .showcase-cards {
@@ -322,7 +259,15 @@ body.home .navbar.scrolled .nav-toggle { text-shadow: none; }
   overflow: hidden;
   text-align: center;
 }
-.showcase-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.showcase-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+.showcase-media img:hover { transform: scale(1.03); }
 .showcase-media.missing { padding: 1.5rem; }
 .showcase-media.missing span { color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; line-height: 1.5; }
 .showcase-media.missing code {
@@ -334,14 +279,6 @@ body.home .navbar.scrolled .nav-toggle { text-shadow: none; }
 
 /* ---------- Carousel ---------- */
 .carousel-section { background: var(--carousel-bg); }
-/* This destination shrinks to fit its content instead of being forced to
-   the full viewport height, so its bottom (the dots) is visible without
-   scrolling. Slide image/padding are also trimmed to help it fit. */
-.carousel-section.snap-section {
-  padding-top: 4rem;
-  padding-bottom: 2rem;
-  min-height: auto;
-}
 .carousel {
   position: relative;
   max-width: 1100px;
@@ -364,7 +301,10 @@ body.home .navbar.scrolled .nav-toggle { text-shadow: none; }
   margin: 0 auto 1rem;
   max-height: 260px;
   width: auto;
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
 }
+.carousel-slide img:hover { transform: scale(1.03); }
 .carousel-slide h3 { margin: 0 0 0.3rem; color: var(--brand-navy); }
 .carousel-slide p { margin: 0; color: #4b5563; }
 .carousel-btn {
@@ -400,6 +340,43 @@ body.home .navbar.scrolled .nav-toggle { text-shadow: none; }
   padding: 0;
 }
 .carousel-dots button.active { background: var(--carousel-dot-active); }
+
+/* ---------- Lightbox (enlarged carousel image) ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(15, 23, 42, 0.85);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease;
+}
+.lightbox.open { opacity: 1; visibility: visible; }
+.lightbox-img {
+  max-width: min(90vw, 900px);
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.lightbox-close:hover { background: rgba(255, 255, 255, 0.22); }
 
 /* ---------- Feature cards ---------- */
 /* Trims the section's own vertical padding so the whole destination
@@ -437,12 +414,6 @@ body.home .navbar.scrolled .nav-toggle { text-shadow: none; }
   color: var(--footer-text);
   padding: 2.5rem 1.5rem 1.5rem;
 }
-/* Only on the landing page: not a .snap-section (so it's skipped by the
-   arrow-key/button nav), but it still gets a native snap point at its own
-   end so mandatory snapping has a valid place to settle once you scroll
-   past Pricing. Scoped to body.home so other pages' footers (contact,
-   signin) never get pulled into scroll-snapping at all. */
-body.home .footer { scroll-snap-align: end; }
 .footer-inner {
   max-width: 1100px;
   margin: 0 auto;
@@ -499,6 +470,68 @@ body.home .footer { scroll-snap-align: end; }
 .card input:focus { outline: 2px solid var(--brand-blue); border-color: transparent; }
 .card .btn-primary { width: 100%; text-align: center; margin-top: 0.4rem; }
 .card .small { font-size: 0.85rem; color: #6b7280; margin-top: 1rem; }
+
+/* ---------- Legal / content pages (terms, privacy) ---------- */
+.legal-page {
+  background: var(--page-bg);
+  padding: 3.5rem 1.5rem 4rem;
+}
+.legal-content { max-width: 780px; margin: 0 auto; }
+.legal-content > a.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--brand-blue);
+}
+.legal-content h1 {
+  margin: 0 0 0.3rem;
+  font-size: 2.1rem;
+  color: var(--brand-navy);
+}
+.legal-content .legal-meta {
+  margin: 0 0 2rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+.legal-content h2 {
+  margin: 2rem 0 0.7rem;
+  font-size: 1.3rem;
+  color: var(--brand-navy);
+}
+.legal-content h3 {
+  margin: 1.4rem 0 0.5rem;
+  font-size: 1.05rem;
+  color: var(--brand-navy);
+}
+.legal-content p { margin: 0 0 1rem; }
+.legal-content ul,
+.legal-content ol { margin: 0 0 1rem; padding-left: 1.4rem; }
+.legal-content li { margin-bottom: 0.4rem; }
+.legal-content a { color: var(--brand-blue); }
+.legal-content strong { color: var(--brand-navy); }
+.legal-content hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 2rem 0;
+}
+.legal-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.5rem;
+  font-size: 0.93rem;
+}
+.legal-content th,
+.legal-content td {
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #e5e7eb;
+}
+.legal-content th {
+  background: #f4f6fb;
+  color: var(--brand-navy);
+}
 
 /* ---------- Pricing ---------- */
 #pricing {
@@ -605,19 +638,14 @@ body.home .footer { scroll-snap-align: end; }
   .price-badge { font-size: 0.68rem; padding: 0.3rem 0.85rem; }
 }
 
-/* ---------- Mobile only (tablets keep the scroll-snap landing page feel) ---------- */
+/* ---------- Mobile only ---------- */
 @media (max-width: 760px) {
-  /* Scroll-snap is a desktop/tablet nicety; on phones it fights normal
-     scrolling more than it helps, so it's off here but stays on for
-     tablets (761px–900px and up). */
-  html.home { scroll-snap-type: none; }
   .hero-inner { flex-direction: column; text-align: center; }
   .hero-copy { max-width: 100%; }
   .hero-art img { max-height: 320px; }
   .carousel-btn { width: 36px; height: 36px; }
   .showcase-card,
   .showcase-card.reverse { flex-direction: column; text-align: center; }
-  .scroll-down-btn { margin-top: 1.5rem; }
 }
 
 /* Fixed backgrounds are unreliable on mobile browsers (esp. iOS Safari) */

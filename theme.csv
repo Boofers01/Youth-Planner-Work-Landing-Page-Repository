@@ -33,7 +33,7 @@ page,--card-bg,#ffffff,Card background
 showcase,--showcase-grad-1,#111827,Showcase section gradient stop 1 (near-black navy) - 135deg start
 showcase,--showcase-grad-2,#172554,Showcase section gradient stop 2 (deep navy, 58%)
 showcase,--showcase-grad-3,#3730a3,Showcase section gradient stop 3 (indigo end)
-layout,--nav-height,64px,Real rendered fixed navbar height (0.6rem padding + 44px logo); used as scroll-margin-top offset and in min-height calc for scroll-snap sections
+layout,--nav-height,64px,Real rendered fixed navbar height (0.6rem padding + 44px logo); matches the literal 64px used in .page-hero's min-height calc
 pricing,--pricing-bg,#172554,Pricing section darker background (matches showcase deep-navy tone) so the white price cards stand out
 pricing,--price-card-border,#8dc63f,Featured/best-value price card border (brand-green, kept distinct from the navy background)
 pricing,--price-heading-accent,#5b5bd6,Accent color for part of the pricing section heading

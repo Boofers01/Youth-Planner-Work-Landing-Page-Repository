@@ -1,0 +1,8 @@
+# OS junk (common in OneDrive-synced Windows folders)
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor/IDE
+.vscode/
+.idea/
