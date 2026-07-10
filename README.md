@@ -42,6 +42,7 @@ It's a normal scrolling page — no scroll-snapping or keyboard section-jumping.
 
 ---
 
+
 ## Styling: `styles.css`
 
 One stylesheet for the whole site, organized top-to-bottom with `/* ---- Comment ---- */` section headers matching what they style (Menu bar, Hero, Sections, Showcase, Carousel, Feature cards, Footer, Auth/simple pages, Pricing, Tablet & Mobile). When adding a new component, add its own labeled section rather than mixing rules into an unrelated one.
