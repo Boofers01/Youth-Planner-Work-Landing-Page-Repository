@@ -17,14 +17,14 @@
   <div class="nav-links">
     <a href="index.html#pricing">Pricing</a>
     <a href="contact.html">Contact</a>
-    <a class="btn-login" href="https://www.youthministryplanner.com">Log in</a>
+    <a class="btn-login" href="https://app.youthministryplanner.com">Log in</a>
   </div>
 </nav>
 <main class="legal-page">
   <div class="legal-content">
     <a class="back-link" href="index.html">&larr; Back to home</a>
     <h1>Privacy Policy</h1>
-    <p class="legal-meta"><strong>Youth Ministry Planner</strong><br>Last updated: June 29, 2026</p>
+    <p class="legal-meta"><strong>Youth Ministry Planner</strong><br>Last updated: July 8, 2026</p>
 
     <p>This Privacy Policy explains how Smart Cascadia LLC (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) collects, uses, and protects information when you use Youth Ministry Planner (&ldquo;the Service&rdquo;). By using the Service, you agree to the practices described here.</p>
     <hr>
@@ -72,9 +72,9 @@
           <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
         </tr>
         <tr>
-          <td>Google Gemini AI</td>
+          <td>Anthropic (Claude AI)</td>
           <td>AI content generation</td>
-          <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
+          <td><a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">anthropic.com/legal/privacy</a></td>
         </tr>
         <tr>
           <td>Stripe</td>
@@ -86,8 +86,9 @@
     <hr>
 
     <h2>5. AI Content Generation</h2>
-    <p>When you request AI-generated content, the relevant details from your ministry profile and meeting structure are sent to <strong>Google Gemini</strong> to generate your plan. This means portions of your ministry information are processed by Google&rsquo;s AI systems.</p>
+    <p>When you request AI-generated content, the relevant details from your ministry profile and meeting structure are sent to <strong>Anthropic&rsquo;s Claude AI models</strong> to generate your plan. This means portions of your ministry information are processed by Anthropic&rsquo;s AI systems.</p>
     <p>We do not send personally identifiable information about youth group members to AI services. We recommend you not include full names of minors in fields that are used for AI generation.</p>
+    <p>To operate the Service reliably for all users, we track how much AI generation each account uses against a weekly usage limit (see our Terms of Service for details). This usage tracking is tied to your account and the cost of each request &mdash; it is not used for any purpose beyond measuring and enforcing that limit.</p>
     <hr>
 
     <h2>6. Data Involving Minors</h2>
@@ -101,7 +102,7 @@
 
     <h2>8. Data Retention</h2>
     <p>We retain your data for as long as your account is active. If you cancel your subscription and close your account, we will delete your data within 90 days, except where we are required by law to retain it longer.</p>
-    <p>You may request deletion of your account and data at any time by emailing <a href="mailto:tim@smartcascadia.com">tim@smartcascadia.com</a>.</p>
+    <p>You may request deletion of your account and data at any time by emailing <a href="mailto:support@youthministryplanner.com">support@youthministryplanner.com</a>.</p>
     <hr>
 
     <h2>9. Your Rights</h2>
@@ -112,7 +113,7 @@
       <li><strong>Delete</strong> your account and associated data</li>
       <li><strong>Export</strong> your meeting plans and ministry data (contact support for assistance)</li>
     </ul>
-    <p>To exercise any of these rights, email <a href="mailto:tim@smartcascadia.com">tim@smartcascadia.com</a>.</p>
+    <p>To exercise any of these rights, email <a href="mailto:support@youthministryplanner.com">support@youthministryplanner.com</a>.</p>
     <hr>
 
     <h2>10. Changes to This Policy</h2>
@@ -122,7 +123,7 @@
     <h2>11. Contact</h2>
     <p>If you have questions about this Privacy Policy or how we handle your data, contact us at:</p>
     <p>
-      <strong>Email:</strong> <a href="mailto:tim@smartcascadia.com">tim@smartcascadia.com</a><br>
+      <strong>Email:</strong> <a href="mailto:support@youthministryplanner.com">support@youthministryplanner.com</a><br>
       <strong>Business:</strong> Smart Cascadia LLC, 30 N Gould St, Ste N, Sheridan, WY 82801
     </p>
   </div>
@@ -139,7 +140,7 @@
       <h4>Links</h4>
       <a href="index.html">Home</a>
       <a href="index.html#pricing">Pricing</a>
-      <a href="https://www.youthministryplanner.com">Log in</a>
+      <a href="https://app.youthministryplanner.com">Log in</a>
     </div>
   </div>
   <div class="footer-bottom">&copy; 2026 Youth Ministry Planner. All rights reserved.</div>
