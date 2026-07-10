@@ -18,6 +18,8 @@
   --menu-login-bg: #7b7bdc;
   --menu-login-bg2: #5b5bd6;
   --menu-login-text: #ffffff;
+  --menu-logo-badge-bg: rgba(255, 255, 255, 0.85);
+  --menu-logo-badge-shadow: 0 2px 10px rgba(22, 41, 79, 0.18);
   /* hero */
   --hero-grad-1: #ecdcef;
   --hero-grad-2: #dde6f4;
@@ -111,7 +113,21 @@ body.home .navbar.scrolled .nav-toggle { text-shadow: none; }
   gap: 0.6rem;
   text-decoration: none;
 }
-.nav-brand img { height: 44px; width: 44px; }
+.nav-brand img {
+  height: 46px;
+  width: 46px;
+  padding: 5px;
+  background: var(--menu-logo-badge-bg);
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+}
+/* The badge only needs its shadow to lift it off the photo/gradient hero
+   behind the floating, transparent navbar. Once the navbar goes solid white
+   (scrolled, or on any non-home page), the badge is white-on-white, so the
+   shadow is dropped to avoid an orphaned shadow with no visible box. */
+body.home .navbar:not(.scrolled) .nav-brand img {
+  box-shadow: var(--menu-logo-badge-shadow);
+}
 .nav-brand .brand-text {
   font-weight: 800;
   font-size: 1.15rem;
@@ -159,7 +175,7 @@ body.home .navbar.scrolled .nav-toggle { text-shadow: none; }
   justify-content: center;
   overflow: hidden;
   background:
-    url("Images/photos/Backgrounds/hero-background-source.jpg") center / cover no-repeat,
+    url("Images/photos/Backgrounds/Hero%20Background.jpg") center / cover no-repeat,
     linear-gradient(115deg, var(--hero-grad-1), var(--hero-grad-2) 35%, var(--hero-grad-3) 70%, var(--hero-grad-4));
   background-attachment: fixed, fixed;
 }
@@ -439,7 +455,7 @@ body.home .navbar.scrolled .nav-toggle { text-shadow: none; }
 /* ---------- Auth / simple pages ---------- */
 .page-hero {
   background:
-    url("Images/photos/Backgrounds/hero-background-source.jpg") center / cover no-repeat,
+    url("Images/photos/Backgrounds/Hero%20Background.jpg") center / cover no-repeat,
     linear-gradient(115deg, var(--hero-grad-1), var(--hero-grad-2) 35%, var(--hero-grad-3) 70%, var(--hero-grad-4));
   padding: 4rem 1.5rem;
   min-height: calc(100vh - 64px);

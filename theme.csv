@@ -11,6 +11,8 @@ menu,--menu-hover,#5b5bd6,Menu link hover color
 menu,--menu-login-bg,#7b7bdc,Log in button background start
 menu,--menu-login-bg2,#5b5bd6,Log in button gradient end
 menu,--menu-login-text,#ffffff,Log in button text
+menu,--menu-logo-badge-bg,rgba(255,255,255,0.85),Rounded badge behind the nav logo icon so it stays visible over the transparent/hero navbar
+menu,--menu-logo-badge-shadow,0 2px 10px rgba(22,41,79,0.18),Drop shadow on the nav logo badge
 hero,--hero-grad-1,#ecdcef,Hero gradient stop 1 (pink-lavender)
 hero,--hero-grad-2,#dde6f4,Hero gradient stop 2 (pale blue)
 hero,--hero-grad-3,#d9efe6,Hero gradient stop 3 (mint)
